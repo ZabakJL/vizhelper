@@ -52,7 +52,7 @@ def show_correlation_matrix(df, name="DataFrame", method="pearson", annot=True, 
         plt.tight_layout()
         plt.show()
 
-ef plot_classification_metrics(y_true, y_pred, y_prob):
+def plot_classification_metrics(y_true, y_pred, y_prob):
     """
     Compute and visualize classification performance metrics for a predictive model.
 
