@@ -1,14 +1,24 @@
 # vizhelper
 
-**Authors:** ZabakJL
+**Author:** ZabakJL
 
-A Python package for customized and visually enhanced data exploration and classification metric evaluation. Tailored for data scientists and notebook workflows.
+`vizhelper` is a modular Python package designed to accelerate exploratory data analysis (EDA) and model evaluation. It provides visual summaries of DataFrames and diagnostics for classification models — ideal for data scientists working in Jupyter notebooks or similar environments.
 
-## Features
-- 📊 Styled summaries of DataFrames
-- 📈 Visualization of classification performance metrics
+---
 
-## Installation
+## ✨ Features
+
+- 📋 **Modular structure** for flexibility and clarity
+- 📊 Styled summaries of DataFrame structure
+- 🔍 Preview of rows (sample, head, tail)
+- 🧮 Basic statistics and unique categorical values
+- 📈 Histograms, correlograms, and correlation matrices
+- 🧪 Visual evaluation of classification models (ROC, confusion matrix, metric bars)
+- 🚀 `explore_dataframe()` one-liner to run a full EDA report
+
+---
+
+## 📦 Installation
 
 You can install the package directly from GitHub using `pip`:
 
@@ -17,30 +27,61 @@ You can install the package directly from GitHub using `pip`:
 pip install git+https://github.com/ZabakJL/vizhelper.git
 ```
 
-### Specific version (e.g., v0.1.0)
+### Specific version (e.g., v0.2.0)
 ```bash
-pip install git+https://github.com/ZabakJL/vizhelper.git@v0.1.0
+pip install git+https://github.com/ZabakJL/vizhelper.git@v0.2.0
 ```
 
-> Make sure you have `git` installed and internet access to reach GitHub.
+> Ensure you have `git` installed and internet access to reach GitHub.
 
-## Usage
+---
+
+## 🚀 Quick Start
 
 ```python
-from vizhelper import summarize_dataframe_structure, plot_classification_metrics
+from vizhelper import explore_dataframe
 
-# Summarize DataFrame structure
-display(summarize_dataframe_structure(df))
+# Run full EDA
+explore_dataframe(df, name="Customers")
+```
 
-# Plot classification metrics
+You can also import functions individually:
+
+```python
+from vizhelper import (
+    show_dataframe_structure, preview_dataframe,
+    show_basic_stats, show_unique_categorical_values,
+    show_histograms_sns, show_correlogram, show_correlation_matrix,
+    plot_classification_metrics
+)
+
+# Example: Display classification model metrics
 plot_classification_metrics(y_test, y_pred, y_prob)
 ```
 
-## Version History
+---
 
-| Version | Description                                                |
-|---------|------------------------------------------------------------|
-| v0.1.0  | Initial release: summary of DataFrames and classification metrics |
+## 🧾 Version History
 
-## License
+| Version | Description                                                             |
+|---------|-------------------------------------------------------------------------|
+| v0.2.0  | Modular refactor, new `explore_dataframe()`, and `plot_classification_metrics` |
+| v0.1.0  | Initial release: summary of DataFrames and classification metrics       |
+
+---
+
+## 🧪 Requirements
+
+- Python ≥ 3.7
+- pandas
+- seaborn
+- matplotlib
+- scikit-learn
+- numpy
+
+---
+
+## 📄 License
+
 MIT
+
