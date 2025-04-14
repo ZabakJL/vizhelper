@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='vizhelper',
-    version='0.2.0',
+    version='0.2.1',
     description='Helpers for data visualization and classification metric plotting',
     author="ZabakJL",
     long_description=open('README.md').read(),
