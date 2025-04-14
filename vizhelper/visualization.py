@@ -1,11 +1,58 @@
-import numpy as np
-import matplotlib.pyplot as plt
+
+from IPython.display import display, HTML
+import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
 import matplotlib.gridspec as gridspec
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix, classification_report, recall_score
 
-def plot_classification_metrics(y_true, y_pred, y_prob):
+def show_histograms_sns(df, name="DataFrame", n_cols=3, show_kde=True, height=3):
+    numeric_df = df.select_dtypes(include='number')
+    if numeric_df.empty:
+        print("⚠️ No numeric variables found to plot.")
+        return
+    display(HTML(f"<h4>📈 Histograms – <code>{name}</code></h4>"))
+    melted = numeric_df.melt()
+    g = sns.FacetGrid(melted, col='variable', col_wrap=n_cols, sharex=False, sharey=False, height=height)
+    g.map(sns.histplot, 'value', kde=show_kde)
+    plt.tight_layout()
+    plt.show()
+
+def show_correlogram(df, name="DataFrame", hue=None, diag_kind="hist"):
+    numeric_df = df.select_dtypes(include='number')
+    if numeric_df.empty:
+        print("⚠️ No numeric variables found for correlogram.")
+        return
+    plot_df = pd.concat([numeric_df, df[hue]], axis=1) if hue and hue in df.columns else numeric_df
+    display(HTML(f"<h4>🔗 Correlogram – <code>{name}</code></h4>"))
+    g = sns.PairGrid(plot_df, hue=hue, diag_sharey=False)
+    g.map_diag(sns.histplot if diag_kind == "hist" else sns.kdeplot)
+    g.map_offdiag(sns.scatterplot)
+    if hue:
+        g.add_legend()
+    plt.tight_layout()
+    plt.show()
+
+def show_correlation_matrix(df, name="DataFrame", method="pearson", annot=True, fmt=".2f", cmap="coolwarm", view="both"):
+    numeric_df = df.select_dtypes(include="number")
+    if numeric_df.empty:
+        print("⚠️ No numeric variables found for correlation matrix.")
+        return
+    corr = numeric_df.corr(method=method)
+    display(HTML(f"<h4>🧮 Correlation Matrix – <code>{name}</code></h4>"))
+    if view in ["table", "both"]:
+        display(corr.style.format(precision=6))
+    if view in ["heatmap", "both"]:
+        plt.figure(figsize=(10, 6))
+        sns.heatmap(corr, annot=annot, fmt=fmt, cmap=cmap, linewidths=0.5, square=True)
+        plt.xticks(rotation=45, ha='right')
+        plt.yticks(rotation=0)
+        plt.tight_layout()
+        plt.show()
+
+ef plot_classification_metrics(y_true, y_pred, y_prob):
     """
     Compute and visualize classification performance metrics for a predictive model.
 

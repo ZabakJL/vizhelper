@@ -1,7 +1,12 @@
-from .dataframe_summary import summarize_dataframe_structure
-from .classification_metrics import plot_classification_metrics
+from .preview import show_dataframe_structure, preview_dataframe
+from .statistics import show_basic_stats, show_unique_categorical_values
+from .visualization import show_histograms_sns, show_correlogram, show_correlation_matrix, plot_classification_metrics
+from .explorer import explore_dataframe
+
 
 __all__ = [
-    "summarize_dataframe_structure",
-    "plot_classification_metrics"
+    'show_dataframe_structure', 'preview_dataframe',
+    'show_basic_stats', 'show_unique_categorical_values',
+    'show_histograms_sns', 'show_correlogram', 'show_correlation_matrix',
+    'explore_dataframe', "plot_classification_metrics"
 ]

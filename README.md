@@ -1,6 +1,6 @@
 # vizhelper
 
-**Authors:** Karen Yorlady, Juan Sebastián, Juan Pablo
+**Authors:** ZabakJL
 
 A Python package for customized and visually enhanced data exploration and classification metric evaluation. Tailored for data scientists and notebook workflows.
 

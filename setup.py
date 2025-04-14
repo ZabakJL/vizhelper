@@ -4,7 +4,7 @@ setup(
     name='vizhelper',
     version='0.1.0',
     description='Helpers for data visualization and classification metric plotting',
-    author="",
+    author="ZabakJL",
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/ZabakJL/vizhelper',
