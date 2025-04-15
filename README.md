@@ -65,7 +65,7 @@ plot_classification_metrics(y_test, y_pred, y_prob)
 
 | Version | Description                                                             |
 |---------|-------------------------------------------------------------------------|
-| v0.3.0  | Advanced visualizations, flexible EDA engine, and full manual                  |
+| v0.3.0  | Advanced visualizations, flexible EDA engine, and full manual           |
 | v0.2.1  | Bugfix: resolved loading issue in visualization module                  |
 | v0.2.0  | Modular refactor, new `explore_dataframe()`, and `plot_classification_metrics` |
 | v0.1.0  | Initial release: summary of DataFrames and classification metrics       |
