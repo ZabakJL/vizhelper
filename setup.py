@@ -5,7 +5,7 @@ setup(
     version='0.3.0',
     description='Helpers for data visualization and classification metric plotting',
     author="ZabakJL",
-    long_description=open('README.md').read(),
+    long_description = open("README.md", encoding="utf-8").read(),
     long_description_content_type='text/markdown',
     url='https://github.com/ZabakJL/vizhelper',
     packages=find_packages(),
