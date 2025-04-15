@@ -81,6 +81,54 @@ plot_classification_metrics(y_test, y_pred, y_prob)
 
 ---
 
+## 📘 Full Manual (Advanced Usage)
+
+This section provides a more detailed overview of the modules, individual functions, and how to customize your EDA reports.
+
+### 📦 Module Breakdown
+
+- **preview.py**
+  - `show_dataframe_structure(df, name='DataFrame')`
+  - `preview_dataframe(df, name='DataFrame', method='sample', n=5)`
+
+- **statistics.py**
+  - `show_basic_stats(df, name='DataFrame', include='number')`
+  - `show_unique_categorical_values(df, name='DataFrame')`
+
+- **visualization.py**
+  - `show_histograms(df, name='DataFrame', n_cols=3, show_kde=True, height=3)`
+  - `show_correlogram(df, name='DataFrame', hue=None, diag_kind='hist')`
+  - `show_correlation_matrix(df, name='DataFrame', method='pearson', view='both')`
+  - `show_strong_correlations(df, threshold=0.7)`
+  - `show_top_correlograms(df, threshold=0.75, max_plots=12, n_cols=3, height=3)`
+  - `plot_classification_metrics(y_true, y_pred, y_prob)`
+
+- **explorer.py**
+  - `explore_dataframe(df, name='DataFrame', functions=None, function_kwargs=None)`
+
+### 🧪 Customizing Function Calls
+
+You can use `function_kwargs` to pass parameters to specific steps:
+
+```python
+explore_dataframe(
+    df,
+    name='Sales Dataset',
+    functions=['histograms', 'correlation', 'classification_metrics'],
+    function_kwargs={
+        'histograms': {'n_cols': 4, 'show_kde': False},
+        'correlation': {'method': 'spearman', 'view': 'heatmap'},
+        'classification_metrics': {
+            'y_true': y_test,
+            'y_pred': y_pred,
+            'y_prob': y_prob
+        }
+    }
+)
+```
+
+> All visual functions are optimized for interactive environments like Jupyter Notebooks.
+
 ## 📄 License
 
 MIT
