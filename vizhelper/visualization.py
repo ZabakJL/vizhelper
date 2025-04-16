@@ -68,7 +68,7 @@ def show_correlation_matrix(df, name="DataFrame", method="pearson", annot=True, 
     if view in ["table", "both"]:
         display(corr.style.format(precision=6))
     if view in ["heatmap", "both"]:
-        plt.figure(figsize=(10, 6))
+        #plt.figure(figsize=(10, 6))
         sns.heatmap(corr, annot=annot, fmt=fmt, cmap=cmap, linewidths=0.5, square=True)
         plt.xticks(rotation=45, ha='right')
         plt.yticks(rotation=0)
